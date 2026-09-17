@@ -1,0 +1,16 @@
+defaultAction: ask
+
+rules:
+  - tool: echo
+    action: allow
+
+  - tool: delete_all
+    action: deny
+
+  - tool: "/^read_.*/"
+    action: allow
+
+  - tool: "/^write_.*/"
+    argsMatch:
+      path: "^/etc/"
+    action: deny
