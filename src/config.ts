@@ -12,7 +12,7 @@ export interface GatewayConfig {
 export function parseArgs(argv: string[]): GatewayConfig {
   const sepIndex = argv.indexOf("--");
   if (sepIndex === -1) {
-    throw new Error("Usage: mcp-guard --policy <file> [options] -- <downstream command> [args...]");
+    throw new Error("Usage: askgate --policy <file> [options] -- <downstream command> [args...]");
   }
   const flags = argv.slice(0, sepIndex);
   const downstream = argv.slice(sepIndex + 1);

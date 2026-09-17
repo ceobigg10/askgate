@@ -10,7 +10,7 @@ afterEach(() => {
 });
 
 function tempLogPath(): string {
-  const dir = mkdtempSync(join(tmpdir(), "mcp-guard-audit-"));
+  const dir = mkdtempSync(join(tmpdir(), "askgate-audit-"));
   dirsToClean.push(dir);
   return join(dir, "audit.log");
 }

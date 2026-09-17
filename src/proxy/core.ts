@@ -26,12 +26,12 @@ export class ProxyCore {
     readMessages(
       this.opts.downstreamOutput,
       (msg) => this.handleDownstreamMessage(msg),
-      (err) => console.error(`[mcp-guard] ${err.message}`)
+      (err) => console.error(`[askgate] ${err.message}`)
     );
     readMessages(
       this.opts.upstreamInput,
       (msg) => this.handleUpstreamMessage(msg),
-      (err) => console.error(`[mcp-guard] ${err.message}`)
+      (err) => console.error(`[askgate] ${err.message}`)
     );
   }
 

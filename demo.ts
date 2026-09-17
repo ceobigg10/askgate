@@ -41,7 +41,7 @@ async function main(): Promise<void> {
   if (existsSync(AUDIT_LOG)) unlinkSync(AUDIT_LOG);
 
   log("");
-  log("=== mcp-guard live demo ===");
+  log("=== askgate live demo ===");
   log("Starting the gateway in front of a fake MCP server...");
   log("");
 
@@ -72,7 +72,7 @@ async function main(): Promise<void> {
   send(gateway, { jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "echo", arguments: { text: "hello" } } });
   const r1 = await nextMessage(gateway);
   log(`RESULT: ${r1.result.content[0].text}`);
-  log("mcp-guard's policy has an explicit ALLOW rule for \"echo\" -> let it straight through, no human involved.");
+  log("askgate's policy has an explicit ALLOW rule for \"echo\" -> let it straight through, no human involved.");
   log("");
   await sleep(2500);
 
@@ -81,7 +81,7 @@ async function main(): Promise<void> {
   send(gateway, { jsonrpc: "2.0", id: 2, method: "tools/call", params: { name: "delete_all", arguments: {} } });
   const r2 = await nextMessage(gateway);
   log(`RESULT: ${r2.error ? `BLOCKED - ${r2.error.message}` : JSON.stringify(r2.result)}`);
-  log("mcp-guard's policy has an explicit DENY rule for \"delete_all\" -> the fake server never even saw this request.");
+  log("askgate's policy has an explicit DENY rule for \"delete_all\" -> the fake server never even saw this request.");
   log("");
   await sleep(2500);
 

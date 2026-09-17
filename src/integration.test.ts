@@ -41,13 +41,13 @@ async function waitForPending(port: number): Promise<{ id: string }[]> {
   return pending;
 }
 
-describe("mcp-guard integration", () => {
+describe("askgate integration", () => {
   let dir: string;
   let policyPath: string;
   let auditLogPath: string;
 
   beforeAll(() => {
-    dir = mkdtempSync(join(tmpdir(), "mcp-guard-"));
+    dir = mkdtempSync(join(tmpdir(), "askgate-"));
     policyPath = join(dir, "policy.yaml");
     auditLogPath = join(dir, "audit.log");
     writeFileSync(

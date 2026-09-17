@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { loadPolicy, PolicyHolder } from "./loader.js";
 
 function tempPolicyFile(contents: string): string {
-  const dir = mkdtempSync(join(tmpdir(), "mcp-guard-policy-"));
+  const dir = mkdtempSync(join(tmpdir(), "askgate-policy-"));
   const path = join(dir, "policy.yaml");
   writeFileSync(path, contents);
   return path;

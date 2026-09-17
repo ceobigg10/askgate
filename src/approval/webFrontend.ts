@@ -45,9 +45,9 @@ export function createWebFrontend(broker: ApprovalBroker): Express {
 
 const DASHBOARD_HTML = `<!doctype html>
 <html>
-<head><title>mcp-guard</title></head>
+<head><title>askgate</title></head>
 <body>
-<h1>mcp-guard pending approvals</h1>
+<h1>askgate pending approvals</h1>
 <ul id="pending"></ul>
 <script>
 const list = document.getElementById("pending");

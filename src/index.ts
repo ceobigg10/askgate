@@ -14,7 +14,7 @@ function main(): void {
   try {
     config = parseArgs(process.argv.slice(2));
   } catch (err) {
-    console.error(`[mcp-guard] ${(err as Error).message}`);
+    console.error(`[askgate] ${(err as Error).message}`);
     process.exit(1);
     return;
   }
@@ -22,10 +22,10 @@ function main(): void {
   let policyHolder: PolicyHolder;
   try {
     policyHolder = new PolicyHolder(config.policyPath, (err) => {
-      console.error(`[mcp-guard] policy reload failed, keeping previous policy: ${err.message}`);
+      console.error(`[askgate] policy reload failed, keeping previous policy: ${err.message}`);
     });
   } catch (err) {
-    console.error(`[mcp-guard] failed to load policy: ${(err as Error).message}`);
+    console.error(`[askgate] failed to load policy: ${(err as Error).message}`);
     process.exit(1);
     return;
   }
@@ -46,7 +46,7 @@ function main(): void {
     const server = app.listen(config.webPort, () => {
       const address = server.address();
       const port = typeof address === "object" && address ? address.port : config.webPort;
-      console.error(`[mcp-guard] approval dashboard on http://localhost:${port}`);
+      console.error(`[askgate] approval dashboard on http://localhost:${port}`);
     });
   }
 
@@ -55,12 +55,12 @@ function main(): void {
   });
 
   child.on("exit", (code) => {
-    console.error(`[mcp-guard] downstream server exited with code ${code}`);
+    console.error(`[askgate] downstream server exited with code ${code}`);
     process.exit(code ?? 1);
   });
 
   child.on("error", (err) => {
-    console.error(`[mcp-guard] failed to start downstream server: ${err.message}`);
+    console.error(`[askgate] failed to start downstream server: ${err.message}`);
     process.exit(1);
   });
 

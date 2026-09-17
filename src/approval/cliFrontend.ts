@@ -6,7 +6,7 @@ export function attachCliFrontend(broker: ApprovalBroker, input: Readable, outpu
   const rl = createInterface({ input, output });
   broker.onPending((approval: PendingApproval) => {
     output.write(
-      `\n[mcp-guard] Approval required: server=${approval.server} tool=${approval.tool} ` +
+      `\n[askgate] Approval required: server=${approval.server} tool=${approval.tool} ` +
         `args=${JSON.stringify(approval.args)} reason="${approval.reason}"\n`
     );
     rl.question("Approve? [y/N] ", (answer) => {
