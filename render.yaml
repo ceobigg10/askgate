@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: askgate-demo
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run public-demo
+    envVars:
+      - key: NODE_VERSION
+        value: 20.20.2
