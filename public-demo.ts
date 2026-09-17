@@ -3,7 +3,7 @@ import { createInterface } from "node:readline";
 
 const WEB_PORT = Number(process.env.PORT) || 4390;
 const AUDIT_LOG = "public-demo-audit.log";
-const APPROVAL_TIMEOUT_MS = 5 * 60_000;
+const APPROVAL_TIMEOUT_MS = 45_000;
 const CALL_INTERVAL_MS = 20_000;
 
 function log(msg: string): void {
